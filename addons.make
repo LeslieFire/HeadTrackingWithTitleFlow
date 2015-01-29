@@ -1,0 +1,6 @@
+ofxThreadedImageLoader
+ofxXmlSettings
+ofxMSAInteractiveObject
+ofxOpenNI
+ofxPoseRecognizer
+ofxSimpleGuiToo
