@@ -5,9 +5,9 @@
 >openframeworks 0074
 
 # Addons
->ofxThreadedImageLoader
->ofxXmlSettings
->ofxMSAInteractiveObject
->ofxOpenNI
->ofxPoseRecognizer
->ofxSimpleGuiToo
+- ofxThreadedImageLoader
+- ofxXmlSettings
+- ofxMSAInteractiveObject
+- ofxOpenNI
+- ofxPoseRecognizer
+- ofxSimpleGuiToo
