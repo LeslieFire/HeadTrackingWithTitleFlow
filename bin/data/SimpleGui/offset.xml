@@ -1,0 +1,18 @@
+<controls>
+    <SliderInt__X_offset>
+        <name> X offset</name>
+        <value>100</value>
+    </SliderInt__X_offset>
+    <SliderInt__Y_offset>
+        <name> Y offset</name>
+        <value>1</value>
+    </SliderInt__Y_offset>
+    <SliderInt_Left_Threshold>
+        <name>Left Threshold</name>
+        <value>0</value>
+    </SliderInt_Left_Threshold>
+    <SliderInt_Right_Threshold>
+        <name>Right Threshold</name>
+        <value>900</value>
+    </SliderInt_Right_Threshold>
+</controls>
