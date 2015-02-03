@@ -13,6 +13,8 @@ void testApp::setup(){
 #endif
 	ofSetFullscreen(_bFullScreen);
 
+	ofLogToFile("Log.txt");
+
 	_niContext.setup();
 	
 	_niDepthGenerator.setup(&_niContext);
@@ -21,6 +23,7 @@ void testApp::setup(){
 	_niUserGenerator.setListener(this);
 	_niUserGenerator.setMaxNumberOfUsers(8);
 
+	_bShowTest = false;
 	_offsetX = 0.0f;
 	_offsetY = 0.0f;
 	_ThresholdLeft = 68;
@@ -32,8 +35,8 @@ void testApp::setup(){
 	gui.addPage("offset").setXMLName("offset.xml");
 	gui.addTitle("offset");
 
-	gui.addSlider(" X offset", _offsetX, -200, 100);
-	gui.addSlider(" Y offset", _offsetY, -200, 100);
+	gui.addSlider(" X offset", _offsetX, -200, 200);
+	gui.addSlider(" Y offset", _offsetY, -100, 100);
 	gui.addSlider("Left Threshold", _ThresholdLeft, 0, 124);
 	gui.addSlider("Right Threshold", _ThresholdRight, 900, 1024);
 
@@ -49,21 +52,21 @@ void testApp::update(){
 	_niImageGenerator.update();
 	_niUserGenerator.update();
 
-
-	//update buddy position
-	//
 	if (!_buddys.empty()){
 		list<buddy>::iterator it = _buddys.begin();
 		list<buddy>::iterator itend = _buddys.end();
 		for(; it != itend; ++it){
-			ofxTrackedUser*  trackedUser = _niUserGenerator.getTrackedUser(it->_ID);
+
+			ofxTrackedUser*  trackedUser = _niUserGenerator.getTrackedXnUser(it->_ID);
 			if (trackedUser != NULL){
-				ofPoint p;
-				p.x = trackedUser->neck.position[0].X * ratioX;
-				p.y = trackedUser->neck.position[0].Y * ratioY;
-				
-				it->_loc = p;
-				//cout << "location : " << it->_loc.x << " " << it->_loc.y << endl;
+				if (trackedUser->skeletonTracking){
+					ofPoint p;
+					p.x = trackedUser->neck.position[0].X * ratioX;
+					p.y = trackedUser->neck.position[0].Y * ratioY;
+
+					it->_loc = p;
+					ofLogNotice("update") << "id : " << ofToString(it->_ID) << " location : " << ofToString(it->_loc.x) << " " << ofToString(it->_loc.y);
+				}
 			}
 		}
 	}
@@ -76,10 +79,7 @@ void testApp::draw(){
 	ofPushMatrix();
 
 	ofTranslate(0, 0);
-	//        openNIDevices[deviceID].drawDebug(); // debug draw does the equicalent of the commented methods below
-	//        openNIDevices[deviceID].drawDepth(0, 0, 640, 480);
 	_niImageGenerator.draw(0, 0, 1024, 768);
-	//_niUserGenerator.draw();
 	if (!_buddys.empty()){
 		list<buddy>::iterator it = _buddys.begin();
 		list<buddy>::iterator itend = _buddys.end();
@@ -98,10 +98,6 @@ void testApp::draw(){
 	ofPopMatrix();
 
 	gui.draw();
-
-	/*ofSetColor(0, 255, 0);
-	string msg = " MILLIS: " + ofToString(ofGetElapsedTimeMillis()) + " FPS: " + ofToString(ofGetFrameRate());
-	verdana.drawString(msg, 20, 480 + 26);*/
 }
 void testApp::exit(){
 	_niContext.shutdown();
@@ -110,15 +106,18 @@ void testApp::exit(){
 void testApp::UserIn(int id){
 	cout << "Get New user id = " << id <<endl;
 
-	ofSeedRandom(ofGetElapsedTimeMillis());
-	int titileIndex = ofRandom(_titles.size());
-	ofPoint loc(0, 0);
-	buddy bud(id, loc, titileIndex);
+	list<buddy>::iterator it = std::find_if(_buddys.begin(), 
+											_buddys.end(), 
+											std::bind2nd(buddyFind(), id));
+	if (it == _buddys.end()){
+		ofSeedRandom(ofGetElapsedTimeMillis());
+		int titileIndex = ofRandom(_titles.size());
 
-	// TODO : if id exist
-	//.....
-	_buddys.push_back(bud);
-	cout << "buddys size = " << _buddys.size() << endl;;
+		ofPoint loc(0, 0);
+		buddy bud(id, loc, titileIndex);
+		_buddys.push_back(bud);
+		cout << "buddys size = " << _buddys.size() << endl;
+	}
 }
 
 void testApp::UserOut(int id){

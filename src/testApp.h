@@ -67,4 +67,6 @@ private:
 		int					_offsetY;
 		int					_ThresholdLeft;
 		int					_ThresholdRight;
+
+		bool				_bShowTest;
 };

@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7FD42DF7-442E-479A-BA76-D0022F99702A}</ProjectGuid>
+    <RootNamespace>03GetPersonIn</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\libs\openFrameworksCompiled\project\vs2010\openFrameworksRelease.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\libs\openFrameworksCompiled\project\vs2010\openFrameworksDebug.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj\$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj\$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectName)_debug</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxThreadedImageLoader\libs;..\..\..\addons\ofxThreadedImageLoader\src;..\..\..\addons\ofxXmlSettings\libs;..\..\..\addons\ofxXmlSettings\src;..\..\..\addons\ofxMSAInteractiveObject\libs;..\..\..\addons\ofxMSAInteractiveObject\src;..\..\..\addons\ofxOpenNI\libs;..\..\..\addons\ofxOpenNI\src;..\..\..\addons\ofxOpenNI\libs\include;..\..\..\addons\ofxOpenNI\libs\include\libusb;..\..\..\addons\ofxOpenNI\libs\include\nite;..\..\..\addons\ofxOpenNI\libs\include\openni;..\..\..\addons\ofxOpenNI\libs\include\openni\Win32;..\..\..\addons\ofxOpenNI\libs\lib;..\..\..\addons\ofxPoseRecognizer\libs;..\..\..\addons\ofxPoseRecognizer\src;..\..\..\addons\ofxSimpleGuiToo\libs;..\..\..\addons\ofxSimpleGuiToo\src;..\..\..\addons\ofxSimpleGuiToo\src\Controls</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(TargetDir)$(TargetName)_debugInfo.pdb</ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalDependencies>openNI.lib;XnVCNITE_1_5_2.lib;XnVFeatures_1_5_2.lib;XnVHandGenerator_1_5_2.lib;XnVNITE_1_5_2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\addons\ofxOpenNI\libs\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat />
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxThreadedImageLoader\libs;..\..\..\addons\ofxThreadedImageLoader\src;..\..\..\addons\ofxXmlSettings\libs;..\..\..\addons\ofxXmlSettings\src;..\..\..\addons\ofxMSAInteractiveObject\libs;..\..\..\addons\ofxMSAInteractiveObject\src;..\..\..\addons\ofxOpenNI\libs;..\..\..\addons\ofxOpenNI\src;..\..\..\addons\ofxOpenNI\libs\include;..\..\..\addons\ofxOpenNI\libs\include\libusb;..\..\..\addons\ofxOpenNI\libs\include\nite;..\..\..\addons\ofxOpenNI\libs\include\openni;..\..\..\addons\ofxOpenNI\libs\include\openni\Win32;..\..\..\addons\ofxOpenNI\libs\lib;..\..\..\addons\ofxPoseRecognizer\libs;..\..\..\addons\ofxPoseRecognizer\src;..\..\..\addons\ofxSimpleGuiToo\libs;..\..\..\addons\ofxSimpleGuiToo\src;..\..\..\addons\ofxSimpleGuiToo\src\Controls</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <AdditionalDependencies>openNI.lib;XnVCNITE_1_5_2.lib;XnVFeatures_1_5_2.lib;XnVHandGenerator_1_5_2.lib;XnVNITE_1_5_2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\addons\ofxOpenNI\libs\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent />
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\testApp.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxThreadedImageLoader\src\ofxThreadedDirLoader.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxThreadedImageLoader\src\ofxThreadedImageLoader.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\src\tinyxml.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\src\tinyxmlerror.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\src\tinyxmlparser.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlerror.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlparser.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMSAInteractiveObject\src\ofxMSAInteractiveObject.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenNI\src\ofxDepthGenerator.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenNI\src\ofxGestureGenerator.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenNI\src\ofxHandGenerator.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenNI\src\ofxHardwareDriver.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenNI\src\ofxImageGenerator.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenNI\src\ofxIRGenerator.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenNI\src\ofxOpenNIContext.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenNI\src\ofxOpenNIRecorder.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenNI\src\ofxTrackedHand.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenNI\src\ofxTrackedUser.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenNI\src\ofxUserGenerator.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxPoseRecognizer\src\ofxOpenNIExt.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxPoseRecognizer\src\ofxOpenNIFilter.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxPoseRecognizer\src\ofxPoseRecognizer.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiButton.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiColorPicker.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiComboBox.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiContent.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiFPSCounter.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiMovieSlider.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiQuadWarp.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiSlider2d.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiTitle.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiToggle.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiConfig.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiControl.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiPage.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiToo.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiValueControl.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\src\ofxUserListener.h" />
+    <ClInclude Include="src\testApp.h" />
+    <ClInclude Include="..\..\..\addons\ofxThreadedImageLoader\src\ofxThreadedDirLoader.h" />
+    <ClInclude Include="..\..\..\addons\ofxThreadedImageLoader\src\ofxThreadedImageLoader.h" />
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h" />
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\src\tinyxml.h" />
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.h" />
+    <ClInclude Include="..\..\..\addons\ofxMSAInteractiveObject\src\ofxMSAInteractiveObject.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\src\ofxDepthGenerator.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\src\ofxGestureGenerator.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\src\ofxHandGenerator.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\src\ofxHardwareDriver.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\src\ofxImageGenerator.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\src\ofxIRGenerator.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\src\ofxOpenNI.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\src\ofxOpenNIContext.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\src\ofxOpenNIMacros.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\src\ofxOpenNIRecorder.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\src\ofxTrackedHand.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\src\ofxTrackedUser.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\src\ofxUserGenerator.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\libusb\libusb.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnCommon.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnV3DVector.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVActivationMessage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVBroadcaster.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVCCMessage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVCircle.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVCircleDetector.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVClickableVirtualPlane.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVComplexMessage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVDepthControl.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVDepthGenerator.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVDepthMessage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVDeviceControl.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVDeviceFilter.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVDeviceGenerator.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVDeviceMessage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVDirection.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVFilter.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVFlowRouter.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVGesture.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVHandle.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVHandPointContext.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVImageGenerator.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVImageMessage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVMathCommon.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVMessage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVMessageGenerator.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVMessageListener.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVMessageMux.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVMultiItemHysteresis1D.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVMultiItemHysteresis2D.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVMultipleHands.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVMultiProcessFlowClient.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVMultiProcessFlowServer.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVNite.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVNiteControls.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVNiteDefs.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVNiteFramework.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVNiteLog.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVNiteStatus.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVNiteVersion.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVPointArea.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVPointControl.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVPointDenoiser.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVPointFilter.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVPointMessage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVPointTracker.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVPushDetector.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVSelectableSlider1D.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVSelectableSlider2D.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVSessionGenerator.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVSessionListener.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVSessionManager.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVSessionMessage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVSlider1D.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVSlider2D.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVSlider3D.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVSteadyDetector.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVSwipeDetector.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVVirtualCoordinates.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\nite\XnVWaveDetector.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\IXnNodeAllocator.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\Win32\usb100.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\Win32\XnOSWin32.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\Win32\XnPlatformWin32.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnAlgorithms.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnArray.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnBaseNode.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnBitSet.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnCallback.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnCodecIDs.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnContext.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnCppWrapper.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnDataTypes.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnDerivedCast.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnDump.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnDumpWriters.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnEnumerationErrors.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnEvent.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnFPSCalculator.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnGeneralBuffer.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnHash.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnInternalDefs.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnLicensing.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnList.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnLog.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnLogTypes.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnLogWriterBase.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnMacros.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnModuleCFunctions.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnModuleCppInterface.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnModuleCppRegistratration.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnModuleInterface.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnNode.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnNodeAllocator.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnOpenNI.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnOS.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnOSCpp.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnOSMemory.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnOSStrings.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnPlatform.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnPrdNode.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnPrdNodeInfo.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnPrdNodeInfoList.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnProfiling.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnPropNames.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnQueries.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnQueue.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnScheduler.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnStack.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnStatus.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnStatusCodes.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnStatusRegister.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnStringsHash.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnThreadSafeQueue.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnTypes.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnUSB.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnUSBDevice.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnUtils.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenNI\libs\include\openni\XnVersion.h" />
+    <ClInclude Include="..\..\..\addons\ofxPoseRecognizer\src\ofxOpenNIExt.h" />
+    <ClInclude Include="..\..\..\addons\ofxPoseRecognizer\src\ofxOpenNIFilter.h" />
+    <ClInclude Include="..\..\..\addons\ofxPoseRecognizer\src\ofxPoseRecognizer.h" />
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiButton.h" />
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiColorPicker.h" />
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiComboBox.h" />
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiContent.h" />
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiFPSCounter.h" />
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiMovieSlider.h" />
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiQuadWarp.h" />
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiSlider2d.h" />
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiSliderBase.h" />
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiSliderFloat.h" />
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiSliderInt.h" />
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiTitle.h" />
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\Controls\ofxSimpleGuiToggle.h" />
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiConfig.h" />
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiControl.h" />
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiIncludes.h" />
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiPage.h" />
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiToo.h" />
+    <ClInclude Include="..\..\..\addons\ofxSimpleGuiToo\src\ofxSimpleGuiValueControl.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\libs\openFrameworksCompiled\project\vs2010\openframeworksLib.vcxproj">
+      <Project>{5837595d-aca9-485c-8e76-729040ce4b0b}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>
